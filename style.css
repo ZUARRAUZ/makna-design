@@ -1,0 +1,244 @@
+/* RESET DAN FONT DASAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #333;
+    position: relative; 
+}
+
+/* WATERMARK: Layer Watermark Pindah ke KANAN ATAS */
+body::before {
+    content: ''; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    
+    /* PROPERTI LOGO */
+    background-image: url('Asset/logomakna.png'); 
+    background-repeat: no-repeat;
+    
+    /* POSISI KANAN ATAS (Jarak 30px dari tepi) */
+    background-position: top 30px right 30px; 
+    background-size: 150px; 
+    
+    /* PROPERTI KESAMARAN (OPACITY) */
+    opacity: 0.08; 
+}
+
+/* -------------------- NAVBAR (BAR ATAS) -------------------- */
+.navbar {
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    background-color: #185675; 
+    border-bottom: 1px solid #eee;
+    padding: 15px 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #ffffff; 
+    padding: 10px 15px;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #a7a1a1;
+}
+
+/* -------------------- INTRO SECTION -------------------- */
+.intro-section {
+    padding: 100px 5% 50px;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+.intro-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+/* Media Query agar Judul Lebih Responsif */
+@media (max-width: 992px) {
+    .intro-section h1 {
+        font-size: 2em; 
+    }
+}
+@media (max-width: 768px) {
+    .intro-section h1 {
+        font-size: 1.8em; 
+    }
+}
+
+/* -------------------- GALERI KARYA -------------------- */
+.gallery {
+    padding: 50px 5%;
+    text-align: center; 
+}
+
+.gallery h2 {
+    margin-bottom: 40px;
+    font-size: 2em;
+    color: #111;
+}
+
+.design-item {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+    width: 350px; 
+    cursor: pointer; 
+}
+
+.design-item img {
+    width: 100%;
+    height: auto; 
+    max-width: 350px;
+    
+    border: 3px solid #ccc; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+/* Efek Hover untuk interaksi minimalis */
+.design-item img:hover {
+    border-color: #000; 
+    transform: translateY(-5px); 
+}
+
+.caption {
+    margin-top: 10px;
+    color: #555;
+    font-style: italic;
+}
+
+/* -------------------- FOOTER -------------------- */
+footer {
+    background-color: #185675;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+/* --- GAYA MODAL (ACTION SHEET ALA IPHONE) BARU --- */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    transition: background-color 0.3s;
+}
+
+.modal-content {
+    background-color: transparent; 
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: absolute; 
+    bottom: 0;
+    left: 0;
+    max-width: none;
+    
+    /* Animasi muncul dari bawah */
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+}
+
+/* Tampilan modal saat aktif */
+.modal.is-visible .modal-content {
+    transform: translateY(0);
+}
+
+.action-sheet-title {
+    color: #999; /* Warna teks samar */
+    font-size: 0.9em;
+    padding: 10px 20px;
+    text-align: center;
+    margin: 0 8px 8px 8px;
+}
+
+/* Container untuk tombol aksi */
+.modal-actions {
+    background-color: white;
+    border-radius: 14px; /* Bulatkan semua sudut untuk kontainer opsi utama */
+    padding: 0;
+    margin: 0 8px 8px 8px; 
+    display: block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+}
+
+/* Gaya Tombol Aksi */
+.modal-btn {
+    width: 100%;
+    display: block;
+    padding: 15px;
+    border: none;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: normal;
+    background-color: white;
+    color: #007aff; 
+    text-align: center;
+    border-top: 1px solid #eeeeee; /* Garis pemisah antar opsi */
+    margin: 0;
+    border-radius: 0;
+}
+
+/* Hilangkan garis di tombol pertama di dalam container aksi */
+.modal-actions .modal-btn:first-child {
+    border-top: none; 
+}
+
+.modal-btn:active {
+    background-color: #f1f1f1;
+}
+
+/* Tombol Batal (Di luar container aksi) */
+.modal-btn.cancel {
+    background-color: white;
+    color: #007aff; 
+    font-weight: bold;
+    margin: 8px;
+    border-radius: 14px;
+}
+
+/* Hilangkan image preview yang tidak diinginkan */
+#modalImage {
+    display: none !important;
+}

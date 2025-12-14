@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pameran Desain Minimalis | Makna</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Makna Design</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tentang">Tentang Kami</a></li>
+                <li><a href="#kerjasama">Kerja Sama</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home">
+        <section class="intro-section">
+            <h1>Selamat Datang di Galeri Minimalis</h1>
+            <p>Koleksi terpilih dari karya-karya desain Makna, menonjolkan kejelasan, ruang negatif, dan fokus pada detail esensial.</p>
+        </section>
+        
+        <section class="gallery">
+            <h2>Karya Terbaru</h2>
+            
+            <div class="design-item popup-trigger" data-file="Asset/logobukudepan.png" data-caption="Cover Buku Hadist Depan">
+                <img src="Asset/logobukudepan.png" alt="Desain Cover Buku Hadist Depan">
+                <p class="caption">Contoh Design Cover Buku Hadist Bagian Depan Yang Di Gunakan Oleh Santri-Santri MANPK Surakarta</p>
+            </div>
+
+           <div class="design-item popup-trigger" data-file="Asset/logobukubelakang.png" data-caption="Cover Buku Hadist Belakang">
+                <img src="Asset/logobukubelakang.png" alt="Desain Cover Buku Hadist Belakang">
+                <p class="caption">Contoh Design Cover Buku Hadist Bagian Belakang Yang Di Gunakan Oleh Santri MANPK Surakarta</p>
+            </div>
+            
+            <div class="design-item popup-trigger" data-file="Asset/promosibuku.png" data-caption="Konten Promosi Buku Hadist">
+                <img src="Asset/promosibuku.png" alt="Konten Promosi Buku Hadist">
+                <p class="caption">Salah Satu konten Promosi Buku Hadist Yang Dipromosikan Dari Panitia Tim Saller OPPK MANPK Surakarta</p>
+            </div>
+            
+        </section>
+    </main>
+    
+    <footer id="tentang">
+        <p>&copy; 2025 Makna Design.</p>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <p id="modalCaptionTitle" class="action-sheet-title"></p> 
+            
+            <div class="modal-actions">
+                <a id="btnFullFile" href="#" target="_blank" class="modal-btn full-file">Lihat File Penuh</a>
+                <a id="btnWhatsapp" href="#" target="_blank" class="modal-btn whatsapp">Hubungi Desainer (WA)</a>
+                <button id="btnShare" class="modal-btn share">Bagikan Foto</button>
+            </div>
+            
+            <button id="btnCancel" class="modal-btn cancel" span style="color:red;">Batal</span></button> 
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
