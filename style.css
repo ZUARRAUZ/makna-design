@@ -28,11 +28,11 @@ body::before {
     background-repeat: no-repeat;
     
     /* POSISI KANAN ATAS (Jarak 30px dari tepi) */
-    background-position: top 30px right 30px; 
-    background-size: 150px; 
+    background-position: top 0px right 0px; 
+    background-size: 540px; 
     
     /* PROPERTI KESAMARAN (OPACITY) */
-    opacity: 0.08; 
+    opacity: 100; 
 }
 
 /* -------------------- NAVBAR (BAR ATAS) -------------------- */
@@ -95,8 +95,43 @@ body::before {
     .intro-section h1 {
         font-size: 1.8em; 
     }
-}
+    
+    /* PENYESUAIAN NAVBAR AGAR TETAP SEJAJAR KIRI-KANAN */
+    .navbar {
+        flex-direction: row; 
+        padding: 12px 2%; 
+    }
+    
+    .logo {
+        font-size: 1.3em; 
+        margin-right: 5px; 
+    }
 
+    .nav-links {
+        flex-direction: row; 
+        margin: 0; 
+        padding: 0;
+    }
+
+    .nav-links li a {
+        font-size: 0.8em; 
+        padding: 5px 8px; 
+        margin-left: 2px; 
+    }
+
+    /* PENYESUAIAN GALERI AGAR TIDAK NABRAK (Tumpuk Vertikal) */
+    .design-item {
+        display: block; 
+        width: 90%; 
+        margin: 20px auto; 
+    }
+    
+    /* PENYESUAIAN WATERMARK */
+    body::before {
+        background-size: 80px; 
+        background-position: top 10px right 10px; 
+    }
+}
 /* -------------------- GALERI KARYA -------------------- */
 .gallery {
     padding: 50px 5%;
@@ -149,7 +184,7 @@ footer {
     margin-top: 50px;
 }
 
-/* --- GAYA MODAL (ACTION SHEET ALA IPHONE) BARU --- */
+/* --- GAYA MODAL (ACTION SHEET ALA IPHONE) - FINAL BLOK GABUNG --- */
 
 .modal {
     display: none; 
@@ -167,7 +202,7 @@ footer {
 .modal-content {
     background-color: transparent; 
     margin: 0;
-    padding: 0;
+    padding: 0 0 30px 0; /* Padding bawah untuk jarak tombol Batal dari tepi HP */
     width: 100%;
     position: absolute; 
     bottom: 0;
@@ -184,23 +219,43 @@ footer {
     transform: translateY(0);
 }
 
+/* BLOK ATAS: JUDUL (DESKRIPSI) */
 .action-sheet-title {
-    color: #999; /* Warna teks samar */
+    color: #000; 
+    font-weight: bold; 
     font-size: 0.9em;
     padding: 10px 20px;
     text-align: center;
-    margin: 0 8px 8px 8px;
+    margin: 0 8px 0 8px; /* Margin Kanan Kiri Pop Up */
+    
+    background-color: #ffffff; /* Putih Solid */
+    
+    /* Bulatkan sudut atas */
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    
+    /* Garis pemisah antara Judul dan Opsi pertama */
+    border-bottom: 1px solid #eeeeee;
 }
 
-/* Container untuk tombol aksi */
+/* BLOK ATAS: CONTAINER OPSI */
 .modal-actions {
     background-color: white;
-    border-radius: 14px; /* Bulatkan semua sudut untuk kontainer opsi utama */
     padding: 0;
-    margin: 0 8px 8px 8px; 
+    
+    /* Hilangkan margin atas agar menyatu dengan Judul */
+    margin: 0 8px 8px 8px; /* Margin Kanan Kiri Pop Up, margin bawah untuk Batal */
     display: block;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden; 
+    
+    /* Bulatkan sudut bawah */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
 }
 
 /* Gaya Tombol Aksi */
@@ -215,26 +270,28 @@ footer {
     background-color: white;
     color: #007aff; 
     text-align: center;
-    border-top: 1px solid #eeeeee; /* Garis pemisah antar opsi */
+    border-top: 1px solid #eeeeee; 
     margin: 0;
     border-radius: 0;
 }
 
-/* Hilangkan garis di tombol pertama di dalam container aksi */
+/* Hilangkan garis di tombol pertama di dalam container aksi (Karena sudah ada garis di Judul) */
 .modal-actions .modal-btn:first-child {
     border-top: none; 
 }
+
 
 .modal-btn:active {
     background-color: #f1f1f1;
 }
 
-/* Tombol Batal (Di luar container aksi) */
+/* BLOK BAWAH: TOMBOL BATAL */
 .modal-btn.cancel {
     background-color: white;
-    color: #007aff; 
+    color: #cd1c1c; 
     font-weight: bold;
-    margin: 8px;
+    /* Margin Kanan Kiri Pop Up, Margin bawah agar tombol terangkat dari tepi bawah */
+    margin: 8px 8px 0 8px; 
     border-radius: 14px;
 }
 
