@@ -30,7 +30,7 @@ body::before {
     /* FIX: POSISI MENTOK KANAN ATAS */
     background-position: top 0 right 0; 
     
-    /* FIX: UKURAN SIMULASI SETENGAH LOGO (Diubah dari 150px) */
+    /* FIX: UKURAN SIMULASI SETENGAH LOGO */
     background-size: 300px; 
     
     /* PROPERTI KESAMARAN (OPACITY) */
@@ -145,7 +145,7 @@ footer {
     margin-top: 50px;
 }
 
-/* --- GAYA MODAL (ACTION SHEET ALA IPHONE) - FINAL BLOK GABUNG --- */
+/* --- GAYA MODAL (ACTION SHEET ALA IPHONE) - BLOK GABUNG --- */
 
 .modal {
     display: none; 
@@ -163,7 +163,7 @@ footer {
 .modal-content {
     background-color: transparent; 
     margin: 0;
-    /* FIX: Hapus padding kiri/kanan agar margin pada child elements bisa bekerja */
+    /* Memberi padding bawah untuk safety area ponsel */
     padding: 0 0 30px 0; 
     width: 100%;
     position: absolute; 
@@ -191,40 +191,36 @@ footer {
     padding: 10px 20px;
     text-align: center;
     
-    /* FIX: Tambahkan margin 8px kiri/kanan untuk jarak dari tepi layar */
+    /* Margin 8px kiri/kanan untuk jarak dari tepi layar */
     margin: 0 8px 0 8px; 
     
     background-color: #ffffff; /* Putih Solid */
     
-    /* Bulatkan sudut atas agar menyatu dengan blok aksi di bawah */
+    /* Bulatkan sudut atas */
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    
-    /* Garis pemisah antara Judul dan Opsi pertama */
     border-bottom: 1px solid #eeeeee;
 }
 
-/* BLOK ATAS: CONTAINER OPSI */
+/* BLOK UTAMA: CONTAINER OPSI + BATAL (SATU BLOK) */
 .modal-actions {
     background-color: white;
     padding: 0;
     
-    /* FIX: Margin 8px kiri/kanan dan hilangkan margin atas agar menyatu dengan Judul */
-    margin: 0 8px 8px 8px; 
+    /* FIX: Margin 8px kiri/kanan. Margin bawah 0 agar menyatu dengan tepi bawah layar */
+    margin: 0 8px 0 8px; 
     display: block;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden; 
     
-    /* Bulatkan sudut bawah agar menyatu dengan Judul di atas */
+    /* FIX: Bulatkan sudut bawah karena semua tombol aksi dan batal ada di sini */
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-left-radius: 14px;
     border-bottom-right-radius: 14px;
 }
 
-/* Gaya Tombol Aksi */
+/* Gaya Tombol Aksi Umum */
 .modal-btn {
     width: 100%;
     display: block;
@@ -234,14 +230,14 @@ footer {
     font-size: 1.1em;
     font-weight: normal;
     background-color: white;
-    color: #007aff; 
+    color: #007aff; /* Warna Aksi Biru default */
     text-align: center;
     border-top: 1px solid #eeeeee; 
     margin: 0;
     border-radius: 0;
 }
 
-/* Hilangkan garis di tombol pertama di dalam container aksi */
+/* Hilangkan garis di tombol pertama (yang langsung di bawah judul) */
 .modal-actions .modal-btn:first-child {
     border-top: none; 
 }
@@ -250,14 +246,15 @@ footer {
     background-color: #f1f1f1;
 }
 
-/* BLOK BAWAH: TOMBOL BATAL */
+/* PENGATURAN TOMBOL BATAL (Putih, Teks Merah, di dalam modal-actions) */
 .modal-btn.cancel {
-    background-color: white;
-    color: #c40438; 
+    background-color: #ffffff; /* Putih Solid */
+    color: #ff3b30; /* Merah untuk tombol Batal */
     font-weight: bold;
-    /* FIX: Jarak 8px dari blok atas dan 8px dari tepi kiri/kanan */
-    margin: 8px 8px 0 8px; 
-    border-radius: 14px;
+    /* Tambahkan garis pemisah yang lebih tebal sebelum tombol Batal */
+    border-top: 1px solid #cccccc; 
+    /* Pastikan tidak ada margin tambahan, karena sudah ada di modal-actions */
+    margin: 0; 
 }
 
 /* Hilangkan image preview yang tidak diinginkan */
@@ -274,7 +271,6 @@ footer {
     
     /* PENYESUAIAN WATERMARK */
     body::before {
-        /* Tetap pakai yang besar agar terpotong di mode responsif */
         background-size: 300px; 
         background-position: top 0 right 0;
     }
