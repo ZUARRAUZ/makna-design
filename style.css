@@ -27,9 +27,11 @@ body::before {
     background-image: url('Asset/logomakna.png'); 
     background-repeat: no-repeat;
     
-    /* POSISI KANAN ATAS (Jarak 30px dari tepi) */
-    background-position: top 30px right 30px; 
-    background-size: 150px; 
+    /* FIX: POSISI MENTOK KANAN ATAS */
+    background-position: top 0 right 0; 
+    
+    /* FIX: UKURAN SIMULASI SETENGAH LOGO (Diubah dari 150px) */
+    background-size: 300px; 
     
     /* PROPERTI KESAMARAN (OPACITY) */
     opacity: 0.08; 
@@ -143,7 +145,7 @@ footer {
     margin-top: 50px;
 }
 
-/* --- GAYA MODAL (ACTION SHEET ALA IPHONE) --- */
+/* --- GAYA MODAL (ACTION SHEET ALA IPHONE) - FINAL BLOK GABUNG --- */
 
 .modal {
     display: none; 
@@ -161,8 +163,8 @@ footer {
 .modal-content {
     background-color: transparent; 
     margin: 0;
-    /* FIX PENTING: Tambahkan padding 8px di kiri dan kanan untuk jarak tepi HP */
-    padding: 0 8px 30px 8px; /* 30px padding di bawah untuk jarak tombol Batal dari tepi HP */
+    /* FIX: Hapus padding kiri/kanan agar margin pada child elements bisa bekerja */
+    padding: 0 0 30px 0; 
     width: 100%;
     position: absolute; 
     bottom: 0;
@@ -179,25 +181,47 @@ footer {
     transform: translateY(0);
 }
 
+/* BLOK ATAS: JUDUL (DESKRIPSI) */
 .action-sheet-title {
-    color: #999; 
+    /* Hitam Tebal sesuai permintaan */
+    color: #000; 
+    font-weight: bold; 
+    
     font-size: 0.9em;
     padding: 10px 20px;
     text-align: center;
-    /* FIX: Hilangkan margin samping, karena sudah diatasi oleh parent padding */
-    margin: 0 0 8px 0;
+    
+    /* FIX: Tambahkan margin 8px kiri/kanan untuk jarak dari tepi layar */
+    margin: 0 8px 0 8px; 
+    
+    background-color: #ffffff; /* Putih Solid */
+    
+    /* Bulatkan sudut atas agar menyatu dengan blok aksi di bawah */
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    
+    /* Garis pemisah antara Judul dan Opsi pertama */
+    border-bottom: 1px solid #eeeeee;
 }
 
-/* Container untuk tombol aksi */
+/* BLOK ATAS: CONTAINER OPSI */
 .modal-actions {
     background-color: white;
-    border-radius: 14px; 
     padding: 0;
-    /* FIX: Hilangkan margin samping, karena sudah diatasi oleh parent padding */
-    margin: 0 0 8px 0; 
+    
+    /* FIX: Margin 8px kiri/kanan dan hilangkan margin atas agar menyatu dengan Judul */
+    margin: 0 8px 8px 8px; 
     display: block;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden; 
+    
+    /* Bulatkan sudut bawah agar menyatu dengan Judul di atas */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
 }
 
 /* Gaya Tombol Aksi */
@@ -226,13 +250,13 @@ footer {
     background-color: #f1f1f1;
 }
 
-/* Tombol Batal (Di luar container aksi) */
+/* BLOK BAWAH: TOMBOL BATAL */
 .modal-btn.cancel {
     background-color: white;
-    color: #007aff; 
+    color: #c40438; 
     font-weight: bold;
-    /* FIX PENTING: Hapus semua margin, agar mengikuti padding parent */
-    margin: 0; 
+    /* FIX: Jarak 8px dari blok atas dan 8px dari tepi kiri/kanan */
+    margin: 8px 8px 0 8px; 
     border-radius: 14px;
 }
 
@@ -247,6 +271,13 @@ footer {
 /* ==================================================== */
 
 @media (max-width: 768px) {
+    
+    /* PENYESUAIAN WATERMARK */
+    body::before {
+        /* Tetap pakai yang besar agar terpotong di mode responsif */
+        background-size: 300px; 
+        background-position: top 0 right 0;
+    }
     
     /* PERBAIKAN NAVBAR AGAR TETAP SEJAJAR KIRI-KANAN */
     .navbar {
@@ -283,9 +314,5 @@ footer {
         margin: 20px auto; 
     }
     
-    /* PENYESUAIAN WATERMARK */
-    body::before {
-        background-size: 80px; 
-        background-position: top 10px right 10px; 
-    }
+    
 }
